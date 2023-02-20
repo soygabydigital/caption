@@ -19,21 +19,12 @@
     </style>
     <body>
         <label for="contarhashtags">Contador de Hashtags</label>
-        <p>
-            Ingresa los hashtags de tu publicación separados por espacios,
-            en las publicaciones de instagram hay un máximo de 30 hashtags permitidos.
-        </p>
-        <i>#ejemplo1 #ejemplo2</i><br>
         <textarea name="hashtag" id="hashtag" onpaste="contarhashtags();" onkeyup="contarhashtags();" rows="10"></textarea>
         <div id="res_h">0 hashtag/s</div>
 
         <br><br>
 
         <label for="contador">Contador de caracteres:</label>
-        <p>
-            Ingresa el caption de tu publicación con los hashtags elegidos,
-            2200 es el máximo de caracteres de un caption de instagram.
-        </p>
         <textarea name="contador" id="contador" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
         <div id="res">0 caractere/s</div>
       
@@ -47,7 +38,7 @@
          setTimeout(function(){
             var valor1=document.getElementById('hashtag');
             var res_hashtag=document.getElementById('res_h');
-            var cantidad_h=valor1.value.split(' #').length;
+            var cantidad_h=valor1.value.split('#').length-1;
             document.getElementById('res_h').innerHTML = cantidad_h + ' hashtag/s, te quedan ' + (total_hashtags - cantidad_h) ;
             if (cantidad_h>total_hashtags){
                 res_hashtag.style.color="red";
