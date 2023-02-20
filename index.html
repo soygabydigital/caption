@@ -18,36 +18,28 @@
         }
     </style>
     <body>
+        <label for="contarhashtags">Contador de Hashtags</label>
+        <p>
+            Ingresa los hashtags de tu publicación separados por espacios,
+            en las publicaciones de instagram hay un máximo de 30 hashtags permitidos.
+        </p>
+        <i>#ejemplo1 #ejemplo2</i><br>
+        <textarea name="hashtag" id="hashtag" onpaste="contarhashtags();" onkeyup="contarhashtags();" rows="10"></textarea>
+        <div id="res_h">0 hashtag/s</div>
+
+        <br><br>
+
         <label for="contador">Contador de caracteres:</label>
+        <p>
+            Ingresa el caption de tu publicación con los hashtags elegidos,
+            2200 es el máximo de caracteres de un caption de instagram.
+        </p>
         <textarea name="contador" id="contador" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
         <div id="res">0 caractere/s</div>
-        <br><br>
-        <label for="contarhashtags">Contador de Hashtags</label>
-        <textarea name="hashtag" id="hashtag" onpaste="contarhashtags();" onkeyup="contarhashtags();" cols="30" rows="10"></textarea>
-        <div id="res_h">0 hashtag/s</div>
+      
 <script>
 
-	function contarcaracteres(){
-		
-	       //Numero de caracteres permitidos
-               var total=2200;
-
-		setTimeout(function(){
-		var valor=document.getElementById('contador');
-		var respuesta=document.getElementById('res');
-		var cantidad=valor.value.length;
-		document.getElementById('res').innerHTML = cantidad + ' caractere/s, te quedan ' + (total - cantidad) ;
-		if(cantidad>total){
-			respuesta.style.color = "red";
-		}
-		else {
-			respuesta.style.color = "black";
-		}
-		},10);
-
-	}
-
-    function contarhashtags(){
+	function contarhashtags(){
 
         //Numero de hashtags permitidos
         var total_hashtags= 30;
@@ -65,6 +57,26 @@
                 }
             },10);         
     }
+
+    function contarcaracteres(){
+		
+        //Numero de caracteres permitidos
+            var total=2200;
+
+     setTimeout(function(){
+     var valor=document.getElementById('contador');
+     var respuesta=document.getElementById('res');
+     var cantidad=valor.value.length;
+     document.getElementById('res').innerHTML = cantidad + ' caractere/s, te quedan ' + (total - cantidad) ;
+     if(cantidad>total){
+         respuesta.style.color = "red";
+     }
+     else {
+         respuesta.style.color = "black";
+     }
+     },10);
+
+ }
 </script>
     </body>
 </html>
